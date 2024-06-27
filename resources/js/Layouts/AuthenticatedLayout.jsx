@@ -48,6 +48,13 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Rute Baru
                                 </NavLink>
+
+                                <NavLink 
+                                    href={route("route-finder")} 
+                                    active={route().current("route-finder")}
+                                    >
+                                    BFS Route Finder
+                                </NavLink>
                             </div>
                         </div>
 
@@ -152,11 +159,21 @@ export default function Authenticated({ user, header, children }) {
                         >
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("rute")}
+                            active={route().current("rute")}
+                        >
+                            Rute Baru
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink>
+                        
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">
+                            <div className="font-bold text-base text-gray-800">
                                 {user.name}
                             </div>
                             <div className="font-medium text-sm text-gray-500">
