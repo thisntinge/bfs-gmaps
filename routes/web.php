@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BfsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\RouteFinderController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [LocationController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/route-finder', [RouteFinderController::class, 'index'])->name('route-finder');
+
 Route::get('/rute', function () {
     return Inertia::render('CreateRute');
 })->middleware(['auth', 'verified'])->name('rute');
@@ -30,3 +34,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
