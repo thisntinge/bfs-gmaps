@@ -56,37 +56,37 @@ export default function CreateRute({ auth }) {
                             className="lg:w-1/2 p-8 space-y-6"
                         >
                             <div>
-                                <label htmlFor="nama" className="block text-sm font-medium text-gray-700">Nama Tempat</label>
+                                <label htmlFor="nama" className="block text-xl font-medium text-gray-700">Nama Tempat</label>
                                 <input
                                     type="text"
                                     name="nama"
                                     id="nama"
-                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-"
                                     value={data.nama}
                                     onChange={e => setData('nama', e.target.value)}
                                 />
                                 {errors.nama && <div className="text-red-500 text-sm mt-1">{errors.nama}</div>}
                             </div>
                             <div>
-                                <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+                                <label htmlFor="description" className="block text-xl font-medium text-gray-700">Description</label>
                                 <textarea
                                     name="description"
                                     id="description"
                                     rows="3"
-                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-xl"
                                     value={data.description}
                                     onChange={e => setData('description', e.target.value)}
                                 ></textarea>
                                 {errors.description && <div className="text-red-500 text-sm mt-1">{errors.description}</div>}
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Location</label>
+                                <label className="block text-xl font-medium text-gray-700">Location</label>
                                 <div className="mt-1 flex gap-4">
                                     <input
                                         type="text"
                                         name="lat"
                                         placeholder="Latitude"
-                                        className="block w-1/2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        className="block w-1/2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-xl"
                                         value={data.lat || ""}
                                         readOnly
                                     />
@@ -94,7 +94,7 @@ export default function CreateRute({ auth }) {
                                         type="text"
                                         name="lng"
                                         placeholder="Longitude"
-                                        className="block w-1/2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        className="block w-1/2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-xl"
                                         value={data.lng || ""}
                                         readOnly
                                     />
