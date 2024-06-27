@@ -18,8 +18,8 @@ export default function Authenticated({ user, header, children }) {
                             <div className="shrink-0 flex items-center">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/" className="
-                                    text-2xl 
-                                    font-extrabold 
+                                    text-4xl 
+                                    font-black 
                                     text-transparent 
                                     bg-clip-text 
                                     bg-gradient-to-r 
@@ -39,12 +39,14 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
+                                    className="text-xl"
                                 >
                                     Dashboard
                                 </NavLink>
                                 <NavLink
                                     href={route("rute")}
                                     active={route().current("rute")}
+                                    className="text-xl"
                                 >
                                     Rute Baru
                                 </NavLink>
@@ -52,6 +54,7 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink 
                                     href={route("route-finder")} 
                                     active={route().current("route-finder")}
+                                    className="text-xl"
                                     >
                                     BFS Route Finder
                                 </NavLink>
@@ -65,7 +68,7 @@ export default function Authenticated({ user, header, children }) {
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-xl leading-4 font-bold rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
 
@@ -88,11 +91,13 @@ export default function Authenticated({ user, header, children }) {
                                     <Dropdown.Content>
                                         <Dropdown.Link
                                             href={route("profile.edit")}
+                                            className="text-ls"
                                         >
                                             Profile
                                         </Dropdown.Link>
                                         <Dropdown.Link
                                             href={route("logout")}
+                                            className="text-ls"
                                             method="post"
                                             as="button"
                                         >
