@@ -78,29 +78,26 @@ export default function Dashboard({ auth, locations }) {
     };
 
     return (
-        <AuthenticatedLayout
-            user={auth.user}
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
-                </h2>
-            }
-        >
-            <Head title="Dashboard" />
-            <div className="w-11/12 mx-auto ">
-                <div className="flex flex-wrap mb-6 mt-10 gap-3">
-                    <div className="w-full md:w-5/12 px-3 mb-6 md:mb-0 mx-auto">
+  <AuthenticatedLayout
+    user={auth.user}  
+>   
+    <Head title="Dashboard" />
+    
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div className="p-6 bg-white border-b border-gray-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Hitung Jarak Lokasi</h3>
+                <div className="flex flex-wrap mb-6 gap-6">
+                    <div className="w-full md:w-5/12">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                            Location 1
+                            Lokasi 1
                         </label>
                         <select
                             value={selectedLocation1}
-                            onChange={(e) =>
-                                setSelectedLocation1(e.target.value)
-                            }
-                            className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white"
+                            onChange={(e) => setSelectedLocation1(e.target.value)}
+                            className="block appearance-none w-full bg-gray-50 border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 transition duration-150 ease-in-out"
                         >
-                            <option value="">Select Location</option>
+                            <option value="">Pilih Lokasi</option>
                             {locations.map((location) => (
                                 <option key={location.id} value={location.name}>
                                     {location.name}
@@ -108,18 +105,16 @@ export default function Dashboard({ auth, locations }) {
                             ))}
                         </select>
                     </div>
-                    <div className="w-full md:w-5/12 px-3 mx-auto">
+                    <div className="w-full md:w-5/12">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                            Location 2
+                            Lokasi 2
                         </label>
                         <select
                             value={selectedLocation2}
-                            onChange={(e) =>
-                                setSelectedLocation2(e.target.value)
-                            }
-                            className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white"
+                            onChange={(e) => setSelectedLocation2(e.target.value)}
+                            className="block appearance-none w-full bg-gray-50 border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 transition duration-150 ease-in-out"
                         >
-                            <option value="">Select Location</option>
+                            <option value="">Pilih Lokasi</option>
                             {locations.map((location) => (
                                 <option key={location.id} value={location.name}>
                                     {location.name}
@@ -128,32 +123,34 @@ export default function Dashboard({ auth, locations }) {
                         </select>
                     </div>
                 </div>
-                <div className="w-9/12 lg:w-2/12 lg:mb-0 mb-10 mx-auto">
+                <div className="flex justify-center">
                     <button
                         onClick={handleCalculateDistance}
-                        className="bg-blue-500 hover:bg-blue-700 duration-300 text-white font-bold py-2 px-4 rounded w-full"
+                        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out"
                     >
                         Hitung Jarak
                     </button>
                 </div>
                 {distance !== null && (
-                    <div className="w-11/12 mx-auto mt-6">
-                        <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                            <div className="p-6 bg-white border-b border-gray-200">
-                                <h3 className="text-lg font-semibold mb-2">
-                                    Jarak antara {selectedLocation1} dan{" "}
-                                    {selectedLocation2} adalah:{" "}
-                                    {distance.toFixed(2)} km
-                                </h3>
-                                <p className="text-sm text-gray-600">
-                                    Catatan: Ini adalah perkiraan jarak
-                                    menggunakan BFS dan formula Haversine.
-                                </p>
-                            </div>
-                        </div>
+                    <div className="mt-8 bg-indigo-50 border border-indigo-200 rounded-lg p-6">
+                        <h3 className="text-xl font-semibold text-indigo-800 mb-2">
+                            Hasil Perhitungan
+                        </h3>
+                        <p className="text-lg text-gray-700">
+                            Jarak antara <span className="font-semibold">{selectedLocation1}</span> dan{" "}
+                            <span className="font-semibold">{selectedLocation2}</span> adalah:{" "}
+                            <span className="text-indigo-600 font-bold">{distance.toFixed(2)} km</span>
+                        </p>
+                        <p className="text-sm text-gray-600 mt-2">
+                            Catatan: Ini adalah perkiraan jarak menggunakan BFS dan formula Haversine.
+                        </p>
                     </div>
                 )}
             </div>
-        </AuthenticatedLayout>
+        </div>
+    </div>
+
+    
+</AuthenticatedLayout>
     );
 }
