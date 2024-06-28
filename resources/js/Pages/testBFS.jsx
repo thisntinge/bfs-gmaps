@@ -73,7 +73,14 @@ export default function RouteFinder({ auth, nodes }) {
         }
     };
 
-  return (
+    const filteredNodes = nodes.filter(node => 
+        !node.name.includes('Persimpangan') &&
+        !node.name.includes('Jalan') &&
+        !node.name.includes('Jl.') &&
+        !node.name.includes('Jl')
+    );
+
+    return (
         <AuthenticatedLayout
             user={auth.user}
             header={
@@ -97,7 +104,7 @@ export default function RouteFinder({ auth, nodes }) {
                                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-base"
                             >
                                 <option value="">Select start node</option>
-                                {nodes.map(node => (
+                                {filteredNodes.map(node => (
                                     <option key={node.id} value={node.name}>{node.name}</option>
                                 ))}
                             </select>
@@ -113,7 +120,7 @@ export default function RouteFinder({ auth, nodes }) {
                                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-base"
                             >
                                 <option value="">Select end node</option>
-                                {nodes.map(node => (
+                                {filteredNodes.map(node => (
                                     <option key={node.id} value={node.name}>{node.name}</option>
                                 ))}
                             </select>
